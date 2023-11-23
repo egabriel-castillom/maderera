@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Form</title>
+    <link href="/static/products.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<div class="overlay">
+    <form id="myForm" action="/submit_form" method="post" class="form-group">
+        <div>
+            <div class="close-btn">&times;</div>
+            <label class="Solicitud" for="nombre">TU SOLICITUD</label>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br>
+            <label for="telefono">Teléfono:</label>
+            <input type="number" id="telefono" name="telefono" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+        </div>
+     </form>
+</div>
+<body>
+    <div class="Titulo">ELIGE TUS PRODUCTOS</div>
+    <form id="productForm" class="form-container">
+       <div class="container" id="products">
+            <label for="productType">Selecciona producto:</label>
+            <br>
+            <select id="productType" onchange="updateForm()">
+                <option value="Tabla">Tabla</option>
+                <option value="Tablón">Tablón</option>
+                <option value="Polín">Polín</option>
+            </select>
+        </div>
+        
+        <div class="container" id="woods">
+            <label for="woodType">Selecciona madera:</label>
+            <br><select id="woodType"></select>            
+        </div>
+        
+        <div class="container" id="Thickness">
+            <label for="thickness">Selecciona espesor:</label>
+            <br><select id="thickness" onchange="syncThicknessAndWidth('thickness')"></select>    
+        </div>
+        
+        <div class="container" id="Width">
+            <label for="width">Selecciona ancho:</label>
+            <br><select id="width" onchange="syncThicknessAndWidth('width')"></select>
+        </div>
+        
+        <div class="container" id="Length">
+            <label for="length">Selecciona largo:</label>
+            <br><select id="length"></select>    
+        </div>
+        
+        <div class="container" id="Quantity">
+            <label for="quantity"> Cantidad:</label>
+            <br><input type="number" id="quantity" min="1" value="1">    
+        </div>
+        
+
+        <input type="submit" value="Agregar a mi lista">
+    </form>
+    <hr><br>
+    <div class="list-container">
+        <div class="Titulo">MI LISTA</div>
+        <table id="yourTable" class="tableList">
+            <thead>
+                <tr>
+                    <th>Prod</th>
+                    <th>Mad</th>
+                    <th>Esp</th>
+                    <th>Anc</th>
+                    <th>Larg</th>
+                    <th>Cant</th>
+                    <th></th> <!-- Este encabezado es para el botón de eliminar -->
+                </tr>
+            </thead>
+            <tbody id="yourTableBody">
+                <!-- Aquí es donde se agregarán las nuevas filas de la tabla -->
+            </tbody>
+        </table>    
+        <br>
+        <input class="getList" type="submit" value="Enviar solicitud." onclick="showOverlay()">
+    </div>
+    <!-- Enlazamos el archivo JavaScript -->
+    <script src="/static/prodOverlay.js"></script>
+    <script src="/static/productForm.js"></script>
+    <script src="/static/submitHandler.js"></script>
+    <script src="/static/prodExport.js"></script>
+</body>
+</html>

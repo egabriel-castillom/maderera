@@ -1,0 +1,252 @@
+
+.form-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.container {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.container label {
+    font-size: 30px;
+}
+
+.container select, .container input {
+    font-size: 25px;
+    width: 100%; /* Adjusts to the container's width */
+    text-align: center; /* Aligns the text to the center */
+    height: 40px; /* Sets the height to 29px */
+}
+
+/* Hides the default select dropdown arrow for most browsers */
+.container select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* Hides the default select dropdown arrow for IE */
+.container select::-ms-expand {
+    display: none;
+}
+
+
+input[type="submit"] {
+    grid-column: span 3;
+    font-size:25px ;
+    height: 80px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.Titulo{
+    font-size: 40px;
+    font-weight:bold ;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 880px) {
+    .form-group{
+        transform: scale(0.95);
+    }
+    html{
+        transform: scale(0.90);
+        transform-origin: top center;
+    }
+    body {
+        transform: scale(0.85);
+        transform-origin: top center;
+    }
+    .form-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+    input[type="submit"] {
+        grid-column: span 2;
+    }
+
+    .form-group {
+        width: 100%; /* Form occupies 80% of the width of the overlay */
+    }
+
+    pre{
+        transform-origin: top left;
+    }
+
+    .overlay{
+        transform: scale(1.2);
+    }
+}
+
+@media (max-width: 493px) {
+    #quantity{
+        margin-top: 18%;
+    }
+}
+
+
+@media (max-width: 281px) {
+    .form-group{
+        transform: scale(0.95);
+    }
+    html{
+        transform: scale(0.90);
+        transform-origin: top center;
+    }
+    body {  
+        transform-origin: top center;
+        transform: scale(.85);
+    }
+    .form-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        transform: scale(.85);
+        margin-left: -9.5%;
+    }
+
+    input[type="submit"] {
+        grid-column: span 2;
+    }
+    
+    .tableList{
+        transform: scale(.80);
+        margin-left: -12%;
+    }
+
+    .overlay{
+        transform-origin: top center;
+    }
+
+    pre{
+        transform: scale(.75);
+        margin-left: -3%;
+    }
+
+    #quantity{
+        margin-top: 18%;
+    }
+
+}
+
+/* Estilo para la tabla */
+table {
+    border-collapse: collapse; /* Combina los bordes de las celdas */
+    width: 100%; /* Ancho de la tabla */
+}
+
+/* Estilo para las celdas de la tabla */
+td, th {
+    border: 1px solid black; /* Borde de las celdas */
+    text-align: left; /* Alineación del texto */
+    padding: 8px; /* Espacio alrededor del texto */
+}
+
+/* Estilo para las filas de la tabla */
+tr {
+    background-color: transparent; /* Fondo transparente de las filas */
+}
+
+.list-container{
+    text-align: center;
+}
+
+/* OVERLAY */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    justify-content: center; /* Center children horizontally */
+    align-items: center; /* Center children vertically */
+    z-index: 1;
+}
+
+/* FORM */
+form {
+    width: 80%; /* Form occupies 80% of the width of the overlay */
+}
+
+.form-group {
+    border: 1px solid black;
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 20px; /* Increase padding to make elements bigger */
+}
+
+.Solicitud {
+    text-align: center;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px; /* Increase margin to make label bigger */
+    font-size: 2em; /* Increase font size to make label bigger */
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid black;
+    font-size: 2em; /* Increase font size to make input and textarea bigger */
+}
+
+/* BUTTON */
+button {
+    display: block; /* Make the button a block element */
+    width: 50%; /* Set the width of the button to be half of its parent's width */
+    margin-left: auto; /* These two lines center the button horizontally */
+    margin-right: auto;
+    padding: 10px; /* Increase padding to make button bigger */
+    font-size: 2em; /* Increase font size to make button text bigger */
+}
+
+.close-btn {
+    text-align: right;
+    font-size: 2em;
+    cursor: pointer;
+    text-shadow: 2px 2px white; /* Add a white shadow */
+}
+
+.row-btn {
+    text-align: center;
+    font-size: 2em;
+    cursor: pointer;
+    text-shadow: 2px 2px white; /* Add a white shadow */
+}
+
+@media (min-width: 881px) {
+    pre {
+        width: 50%; /* or any specific width */
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+    }
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.flash-error {
+    animation: flashError 1s infinite;
+}
+
+@keyframes flashError {
+    0% { background-color: transparent; }
+    50% { background-color: rgba(255, 0, 0, 0.5); }
+    100% { background-color: transparent; }
+}

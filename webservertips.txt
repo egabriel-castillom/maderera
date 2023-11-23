@@ -1,0 +1,15 @@
+systemctl stop nginx
+systemctl start nginx
+systemctl status nginx
+
+docker container ls -a
+docker container ls --filter "status="
+docker container rm 
+docker container rm -f $(docker container ls -aq)
+docker-compose up -d --build
+docker-compose stop
+docker-compose down
+docker-compose kill
+
+netstat -tuln | grep :80
+sudo kill -9 $(sudo lsof -t -i:80)

@@ -1,0 +1,1 @@
+netsh wlan connect ssid=TOTALPLAY_AADA01 name=TOTALPLAY_AADA01 interface="Wi-Fi" 
