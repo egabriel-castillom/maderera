@@ -97,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
         folio = parseInt(data) + 1;
         document.querySelector('.instancenum').textContent = folio;
     });
+    console.log(folio);
     document.querySelector('.button-2').addEventListener('click', function(event) {
         event.preventDefault();
         var element = document.querySelector('.a4---2');
@@ -149,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var x = (width - imgWidth) / 2;
             var y = (height - imgHeight) / 2;
             pdf.addImage(imgData, 'PNG', x, 0, imgWidth, imgHeight);
-            pdf.save('output.pdf');
+            pdf.save('COTIZACION_MADERA_LAS_TORRES_'+folio+'.pdf');
             restoreElements(originalState);
             medidasCol.style.marginLeft = "0px";
         });
